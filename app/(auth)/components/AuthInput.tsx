@@ -40,7 +40,7 @@ export default function AuthInput({
           rounded-md
           border-0
           py-1.5
-          text-gray-900
+          text-gray-200
           text-sm
           leading-6
           shadow-sm
