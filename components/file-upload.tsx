@@ -14,7 +14,7 @@ type FileUploadProps = {
 }
 
 export default function FileUpload({ name, value, endpoint, onChange }: FileUploadProps) {
-  const [supabasePath, setSupabasePath] = useState<string | null>(null)
+  const [supabasePath, setSupabasePath] = useState<string>('')
 
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || !e.target.files[0]) {
@@ -37,7 +37,7 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
   }
 
   const handleDelete = async () => {
-    const { data, error } = await supabase.storage.from('images').remove([value])
+    const { data, error } = await supabase.storage.from('images').remove([supabasePath])
 
     if (error) {
       console.error('Error deleting image:', error)
