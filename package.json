@@ -46,7 +46,19 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/uuid": "^9.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "3.0.3",
     "prisma": "^5.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
