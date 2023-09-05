@@ -6,7 +6,7 @@ export default async function Home() {
   const server = await getServer()
 
   if (server) {
-    redirect(`/server/${server.id}`)
+    redirect(`/servers/${server.id}`)
   }
 
   return <InitialModal />

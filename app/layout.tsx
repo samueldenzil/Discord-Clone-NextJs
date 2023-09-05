@@ -1,9 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import AuthContext from '@/context/AuthContext'
 import ToastContext from '@/context/ToastContext'
+
 import { ThemeProvider } from '@/components/providers/theme-provider'
+import { ModalProvider } from '@/components/providers/modal-provider'
+
 import { cn } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           storageKey="discord-theme"
         >
           <AuthContext>
+            <ModalProvider />
             <ToastContext />
             {children}
           </AuthContext>
