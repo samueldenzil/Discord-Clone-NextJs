@@ -30,9 +30,9 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
     if (error) {
       console.error('Error uploading image:', error)
     } else {
-      const { data: pasthData } = supabase.storage.from('images').getPublicUrl(path)
+      const { data: publicUrlData } = supabase.storage.from('images').getPublicUrl(path)
       setSupabasePath(data.path)
-      onChange(pasthData.publicUrl)
+      onChange(publicUrlData.publicUrl)
     }
   }
 

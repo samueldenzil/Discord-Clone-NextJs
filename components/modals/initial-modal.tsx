@@ -73,68 +73,71 @@ export default function InitialModal() {
   }
 
   return (
-    <Dialog open>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-center text-2xl font-bold">
-            Customize your server
-          </DialogTitle>
-          <DialogDescription className="text-center text-zinc-500">
-            Give your server a personality with a name and an image. You can always change it later.
-          </DialogDescription>
-        </DialogHeader>
+    <div className="h-full bg-invite-bg object-cover object-center">
+      <Dialog open>
+        <DialogContent className="bg-white text-black p-0 overflow-hidden">
+          <DialogHeader className="pt-8 px-6">
+            <DialogTitle className="text-center text-2xl font-bold">
+              Customize your server
+            </DialogTitle>
+            <DialogDescription className="text-center text-zinc-500">
+              Give your server a personality with a name and an image. You can always change it
+              later.
+            </DialogDescription>
+          </DialogHeader>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="space-y-8 px-6">
-              <div className="flex justify-center items-center text-center">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="space-y-8 px-6">
+                <div className="flex justify-center items-center text-center">
+                  <FormField
+                    control={form.control}
+                    name="imageUrl"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <FileUpload
+                            name={field.name}
+                            value={field.value}
+                            onChange={field.onChange}
+                            endpoint="server-image"
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
                 <FormField
                   control={form.control}
-                  name="imageUrl"
+                  name="name"
                   render={({ field }) => (
                     <FormItem>
+                      <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                        Server name
+                      </FormLabel>
                       <FormControl>
-                        <FileUpload
-                          name={field.name}
-                          value={field.value}
-                          onChange={field.onChange}
-                          endpoint="server-image"
+                        <Input
+                          placeholder="Enter server name"
+                          disabled={isLoading}
+                          className="bg-zinc-300/50 border-0 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
+                          {...field}
                         />
                       </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
-
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Server name
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter server name"
-                        disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button type="submit" variant="primary">
-                Create
-              </Button>
-            </DialogFooter>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+              <DialogFooter className="bg-gray-100 px-6 py-4">
+                <Button type="submit" variant="primary">
+                  Create
+                </Button>
+              </DialogFooter>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    </div>
   )
 }
