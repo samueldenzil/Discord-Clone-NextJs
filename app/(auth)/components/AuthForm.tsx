@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast'
 
 import { Button } from '@/components/ui/button'
 import AuthInput from './AuthInput'
+import { cn } from '@/lib/utils'
 
 type VARIENT = 'LOGIN' | 'REGISTER'
 

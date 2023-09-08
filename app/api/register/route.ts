@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import bcrypt from 'bcrypt'
 import prisma from '@/lib/db'
+import supabase from '@/lib/supabase'
 
 export async function POST(request: Request) {
   try {
@@ -13,11 +14,15 @@ export async function POST(request: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 12)
 
+    const imgUrl = `assets/default-pfp/discord-default-pfp-${Math.floor(Math.random() * 5) + 1}.svg`
+    const { data: publicUrlData } = supabase.storage.from('images').getPublicUrl(imgUrl)
+
     const user = await prisma.user.create({
       data: {
         name,
         email,
         hashedPassword,
+        image: publicUrlData.publicUrl,
       },
     })
 

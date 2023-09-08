@@ -8,6 +8,7 @@ import { Separator } from '@/components/ui/separator'
 import NavigationAction from '@/components/navigation/navigation-action'
 import NavigationItem from '@/components/navigation/navigation-item'
 import { ModeToggle } from '@/components/mode-toggle'
+import UserAvatar from '@/components/user-avatar'
 
 export default async function NavigationSidebar() {
   const user = await getCurrentUser()
@@ -38,8 +39,10 @@ export default async function NavigationSidebar() {
           </div>
         ))}
       </ScrollArea>
+
       <div className="pb-3 mt-auto flex flex-col items-center gap-y-4">
         <ModeToggle />
+        <UserAvatar src={user.image!} className="cursor-pointer" />
       </div>
     </div>
   )
