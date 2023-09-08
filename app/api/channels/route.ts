@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import getCurrentUser from '@/actions/getCurrentUser'
+import getCurrentUser from '@/actions/get-current-user'
 import prisma from '@/lib/db'
 import { MemberRole } from '@prisma/client'
 

@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 
 import prisma from '@/lib/db'
 
-import getCurrentUser from '@/actions/getCurrentUser'
+import getCurrentUser from '@/actions/get-current-user'
 import ServerSidebar from '@/components/server/server-sidebar'
 
 export default async function ServerIdLayout({

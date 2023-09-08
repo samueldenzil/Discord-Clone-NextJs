@@ -1,5 +1,5 @@
 import prisma from '@/lib/db'
-import getCurrentUser from './getCurrentUser'
+import getCurrentUser from './get-current-user'
 
 const getServer = async () => {
   try {

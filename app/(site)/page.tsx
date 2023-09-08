@@ -1,4 +1,4 @@
-import getServer from '@/actions/getServer'
+import getServer from '@/actions/get-server'
 import InitialModal from '@/components/modals/initial-modal'
 import { redirect } from 'next/navigation'
 

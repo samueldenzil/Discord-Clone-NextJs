@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 import prisma from '@/lib/db'
-import getCurrentUser from '@/actions/getCurrentUser'
+import getCurrentUser from '@/actions/get-current-user'
 
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
@@ -9,6 +9,7 @@ import NavigationAction from '@/components/navigation/navigation-action'
 import NavigationItem from '@/components/navigation/navigation-item'
 import { ModeToggle } from '@/components/mode-toggle'
 import UserAvatar from '@/components/user-avatar'
+import { signOut } from 'next-auth/react'
 
 export default async function NavigationSidebar() {
   const user = await getCurrentUser()
@@ -42,7 +43,11 @@ export default async function NavigationSidebar() {
 
       <div className="pb-3 mt-auto flex flex-col items-center gap-y-4">
         <ModeToggle />
-        <UserAvatar src={user.image!} className="cursor-pointer" />
+        <UserAvatar
+          src={user.image!}
+          className="cursor-pointer md:h-11 md:w-11"
+          onClick="signOut"
+        />
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 
 import { Button } from '@/components/ui/button'
-import AuthInput from './AuthInput'
+import AuthInput from './auth-input'
 
 type VARIENT = 'LOGIN' | 'REGISTER'
 
@@ -49,11 +49,23 @@ export default function AuthForm() {
     if (varient === 'REGISTER') {
       axios
         .post('/api/register', data)
-        .then((res) => toast.success('Successful'))
-        .catch((error: any) => {
-          toast.error('Something went wrong')
-          console.error(error)
+        .then(() =>
+          signIn('credentials', {
+            ...data,
+            redirect: false,
+          })
+        )
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error('Invalid credentials!')
+          }
+
+          if (callback?.ok) {
+            toast.success('Successful')
+            router.push('/')
+          }
         })
+        .catch(() => toast.error('Something went wrong!'))
         .finally(() => setIsLoading(false))
     }
 
