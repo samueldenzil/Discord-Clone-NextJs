@@ -8,7 +8,6 @@ import { toast } from 'react-hot-toast'
 
 import { Button } from '@/components/ui/button'
 import AuthInput from './AuthInput'
-import { cn } from '@/lib/utils'
 
 type VARIENT = 'LOGIN' | 'REGISTER'
 
@@ -21,7 +20,7 @@ export default function AuthForm() {
 
   useEffect(() => {
     if (session.status === 'authenticated') {
-      router.push('/dashboard')
+      router.push('/')
     }
   }, [session.status, router])
 
@@ -65,7 +64,7 @@ export default function AuthForm() {
             toast.error('Invalid credentials')
           }
           if (!res?.error && res?.ok) {
-            router.push('/dashboard')
+            router.push('/')
             toast.success('Successful')
           }
         })
