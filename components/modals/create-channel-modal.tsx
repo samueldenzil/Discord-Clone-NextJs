@@ -39,6 +39,7 @@ import FileUpload from '@/components/file-upload'
 import axios from 'axios'
 import { useModalStore } from '@/hooks/use-modal-store'
 import { url } from 'inspector'
+import { useEffect } from 'react'
 
 const formSchema = z.object({
   name: z
@@ -51,11 +52,12 @@ const formSchema = z.object({
 })
 
 export default function CreateChannelModal() {
-  const { isOpen, onClose, type } = useModalStore()
+  const { isOpen, onClose, type, data } = useModalStore()
   const router = useRouter()
   const params = useParams()
 
   const isModalOpen = isOpen && type === 'createChannel'
+  const { channelType } = data
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,6 +68,14 @@ export default function CreateChannelModal() {
   })
 
   const isLoading = form.formState.isSubmitting
+
+  useEffect(() => {
+    if (channelType) {
+      form.setValue('type', channelType)
+    } else {
+      form.setValue('type', ChannelType.TEXT)
+    }
+  }, [channelType, form])
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
