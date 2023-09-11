@@ -29,7 +29,7 @@ export default async function NavigationSidebar() {
   }
 
   return (
-    <div className="flex flex-col items-center space-y-4 h-full text-primary w-full py-3 dark:bg-[#1e1f22]">
+    <div className="flex flex-col items-center space-y-4 h-full text-primary w-full py-3 bg-[#e3e5e8] dark:bg-[#1e1f22]">
       <NavigationAction />
       <Separator className="h-[2px] rounded-md w-10 mx-auto bg-zinc-300 dark:bg-zinc-700" />
 
