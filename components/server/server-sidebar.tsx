@@ -162,6 +162,15 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
             </div>
           </div>
         )}
+
+        <div className="md:hidden mb-2">
+          <ServerSection sectionType="members" role={role} server={server} label="Members" />
+          <div className="space-y-[2px]">
+            {members.map((member) => (
+              <ServerMember key={member.id} member={member} server={server} />
+            ))}
+          </div>
+        </div>
       </ScrollArea>
     </div>
   )
