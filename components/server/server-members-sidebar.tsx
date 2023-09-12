@@ -43,16 +43,14 @@ export default async function ServerMembersSidebar({ serverId }: ServerMembersSi
   return (
     <div className="h-full w-full flex flex-col bg-[#f2f3f5] dark:bg-[#2b2d31] text-primary">
       <ScrollArea className="flex-1 px-3">
-        {!!members.length && (
-          <div className="mb-2">
-            <ServerSection sectionType="members" role={role} label="Members" />
-            <div className="space-y-[2px]">
-              {members.map((member) => (
-                <ServerMember key={member.id} member={member} server={server} />
-              ))}
-            </div>
+        <div className="my-2">
+          <ServerSection sectionType="members" role={role} server={server} label="Members" />
+          <div className="space-y-[2px]">
+            {members.map((member) => (
+              <ServerMember key={member.id} member={member} server={server} />
+            ))}
           </div>
-        )}
+        </div>
       </ScrollArea>
     </div>
   )
