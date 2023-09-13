@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
 import prisma from '@/lib/db'
-import getCurrentUser from '@/actions/get-current-user'
+import getCurrentUser from '@/lib/get-current-user'
 
 export async function PATCH(req: Request, { params }: { params: { serverId: string } }) {
   try {

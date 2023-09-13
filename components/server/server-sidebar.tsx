@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from 'lucide-react'
 
 import { ScrollArea } from '@/components/ui/scroll-area'
-import getCurrentUser from '@/actions/get-current-user'
+import getCurrentUser from '@/lib/get-current-user'
 import prisma from '@/lib/db'
 import ServerHeader from '@/components/server/server-header'
 import ServerSearch from '@/components/server/server-search'

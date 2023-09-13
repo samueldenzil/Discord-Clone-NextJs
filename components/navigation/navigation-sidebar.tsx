@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 import prisma from '@/lib/db'
-import getCurrentUser from '@/actions/get-current-user'
+import getCurrentUser from '@/lib/get-current-user'
 
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
