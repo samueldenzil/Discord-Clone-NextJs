@@ -7,6 +7,7 @@ import ToastContext from '@/context/ToastContext'
 
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ModalProvider } from '@/components/providers/modal-provider'
+import { SocketProvider } from '@/components/providers/socket-provider'
 
 import { cn } from '@/lib/utils'
 
@@ -27,11 +28,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
           storageKey="discord-theme"
         >
-          <AuthContext>
-            <ModalProvider />
-            <ToastContext />
-            {children}
-          </AuthContext>
+          <SocketProvider>
+            <AuthContext>
+              <ModalProvider />
+              <ToastContext />
+              {children}
+            </AuthContext>
+          </SocketProvider>
         </ThemeProvider>
       </body>
     </html>
