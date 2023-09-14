@@ -7,7 +7,7 @@ type ChatHeaderProps = {
   serverId: string
   name: string
   type: 'channel' | 'conversation'
-  imageUrl: string
+  imageUrl?: string
 }
 
 export default function ChatHeader({ serverId, name, type, imageUrl }: ChatHeaderProps) {
