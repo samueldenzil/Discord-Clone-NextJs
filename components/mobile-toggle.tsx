@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Menu } from 'lucide-react'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -8,7 +9,7 @@ import ServerSidebar from '@/components/server/server-sidebar'
 export default function MobileToggle({ serverId }: { serverId: string }) {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu />
         </Button>
