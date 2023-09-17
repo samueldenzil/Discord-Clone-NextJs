@@ -4,6 +4,7 @@ import getCurrentUser from '@/lib/get-current-user'
 import prisma from '@/lib/db'
 import ChatHeader from '@/components/chat/chat-header'
 import ChatInput from '@/components/chat/chat-input'
+import ChatMessages from '@/components/chat/chat-messages'
 
 type ChannelIdPageProps = {
   params: {
@@ -39,7 +40,20 @@ export default async function ChannelIdPage({ params }: ChannelIdPageProps) {
   return (
     <div className="bg-white flex flex-col h-full dark:bg-[#313338]">
       <ChatHeader name={channel.name} serverId={params.serverId} type="channel" />
-      <div className="flex-1">future message</div>
+      <ChatMessages
+        name={channel.name}
+        member={member}
+        chatId={channel.id}
+        apiUrl="/api/messages"
+        socketUrl="/api/socket/messages"
+        socketQuery={{
+          channelId: channel.id,
+          serverId: channel.serverId,
+        }}
+        paramKey="channelId"
+        paramValue={channel.id}
+        type="channel"
+      />
       <ChatInput
         apiUrl="/api/socket/messages"
         name={channel.name}
