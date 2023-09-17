@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { Member, MemberRole, User } from '@prisma/client'
+import axios from 'axios'
 import queryString from 'query-string'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Edit, FileIcon, ShieldAlert, ShieldCheck, Trash } from 'lucide-react'
 
+import { useModalStore } from '@/hooks/use-modal-store'
 import UserAvatar from '@/components/user-avatar'
 import ActionTooltip from '../action-tooltip'
 import Image from 'next/image'
@@ -23,7 +25,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import axios from 'axios'
 
 type ChatItemProps = {
   id: string
@@ -61,7 +62,8 @@ export default function ChatItem({
   timestamp,
 }: ChatItemProps) {
   const [isEditing, setIsEditing] = useState(false)
-  const [isDeleting, setIsDeleting] = useState(false)
+
+  const { onOpen } = useModalStore()
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -211,7 +213,12 @@ export default function ChatItem({
             </ActionTooltip>
           )}
           <ActionTooltip label="Delete">
-            <Trash className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
+            <Trash
+              onClick={() =>
+                onOpen('deleteMessage', { apiUrl: `${socketUrl}/${id}`, query: socketQuery })
+              }
+              className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
+            />
           </ActionTooltip>
         </div>
       )}
