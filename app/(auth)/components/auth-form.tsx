@@ -1,4 +1,3 @@
-// TODO: Update AuthForm UI to match discord theme
 import { useEffect, useState, useCallback } from 'react'
 import { useForm, FieldValues, SubmitHandler } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
@@ -90,7 +89,7 @@ export default function AuthForm() {
         {varient === 'REGISTER' && (
           <AuthInput
             id="name"
-            label="Name"
+            label="Username"
             register={register}
             errors={errors}
             disabled={isLoading}
@@ -114,15 +113,15 @@ export default function AuthForm() {
           disabled={isLoading}
         />
         {/* TODO update */}
-        <Button type="submit" variant="default" className="w-full">
+        <Button type="submit" variant="primary" className="w-full">
           {varient === 'LOGIN' ? 'Log In' : 'Continue'}
         </Button>
       </form>
 
       <div className="text-sm flex gap-2 mt-3">
-        {varient === 'LOGIN' && <div className="text-gray-400">Need an account?</div>}
+        {varient === 'LOGIN' && <div className="text-[#949ba4]">Need an account?</div>}
         <div
-          className="cursor-pointer text-blue-500 hover:underline"
+          className="cursor-pointer text-[#00a8fc] hover:underline"
           onClick={() => toggleVarient()}
         >
           {varient === 'LOGIN' ? 'Register' : 'Already have an account?'}
