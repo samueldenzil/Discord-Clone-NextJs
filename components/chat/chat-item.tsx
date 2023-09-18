@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Member, MemberRole, User } from '@prisma/client'
+import { useParams, useRouter } from 'next/navigation'
 import axios from 'axios'
 import queryString from 'query-string'
 import { useForm } from 'react-hook-form'
@@ -15,15 +16,7 @@ import ActionTooltip from '../action-tooltip'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
 type ChatItemProps = {
@@ -62,6 +55,16 @@ export default function ChatItem({
   timestamp,
 }: ChatItemProps) {
   const [isEditing, setIsEditing] = useState(false)
+  const params = useParams()
+  const router = useRouter()
+
+  const onMemberClick = () => {
+    if (memeber.id === currentMember.id) {
+      return
+    }
+
+    router.push(`/servers/${params?.serverId}/conversations/${memeber.id}`)
+  }
 
   const { onOpen } = useModalStore()
 
@@ -118,13 +121,16 @@ export default function ChatItem({
   return (
     <div className="relative group flex items-center w-full p-4 hover:bg-black/5 transition">
       <div className="group flex gap-x-2 items-start w-full">
-        <div className="cursor-pointer hover:drop-shadow-md transition">
+        <div onClick={onMemberClick} className="cursor-pointer hover:drop-shadow-md transition">
           <UserAvatar src={memeber.user.image!} />
         </div>
         <div className="flex flex-col w-full">
           <div className="flex items-center gap-x-2">
             <div className="flex items-center">
-              <p className="font-semibold text-sm hover:underline cursor-pointer">
+              <p
+                onClick={onMemberClick}
+                className="font-semibold text-sm hover:underline cursor-pointer"
+              >
                 {memeber.user.name}
               </p>
               <ActionTooltip label={memeber.role}>{roleIconMap[memeber.role]}</ActionTooltip>
