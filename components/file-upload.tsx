@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
-import { UploadCloud, X } from 'lucide-react'
+import { FileIcon, UploadCloud, X } from 'lucide-react'
 
 import { Input } from '@/components/ui/input'
 import supabase from '@/lib/supabase'
@@ -14,6 +14,7 @@ type FileUploadProps = {
 }
 
 export default function FileUpload({ name, value, endpoint, onChange }: FileUploadProps) {
+  const fileType = value?.split('.').pop()
   const [supabasePath, setSupabasePath] = useState<string>('')
 
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +31,9 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
     if (error) {
       console.error('Error uploading image:', error)
     } else {
-      const { data: pasthData } = supabase.storage.from('images').getPublicUrl(path)
+      const { data: publicUrlData } = supabase.storage.from('images').getPublicUrl(path)
       setSupabasePath(data.path)
-      onChange(pasthData.publicUrl)
+      onChange(publicUrlData.publicUrl)
     }
   }
 
@@ -47,13 +48,37 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
     }
   }
 
-  if (value) {
+  if (value && fileType !== 'pdf') {
     return (
       <div className="relative h-20 w-20">
         <Image src={value} fill alt={name} className="object-cover rounded-full" />
         <button
           onClick={handleDelete}
           className="absolute top-0 right-0 bg-rose-500 text-white p-1 rounded-full shadow-sm"
+          type="button"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+    )
+  }
+
+  // BUG: pdf url not showing properly
+  if (value && fileType === 'pdf') {
+    return (
+      <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
+        <FileIcon className="h-10 w-10 fill-indigo-200 stroke-indigo-400" />
+        <a
+          href={value}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
+        >
+          {value}
+        </a>
+        <button
+          onClick={() => onChange('')}
+          className="bg-rose-500 text-white p-1 rounded-full absolute -top-2 -right-2 shadow-sm"
           type="button"
         >
           <X className="h-4 w-4" />
@@ -76,7 +101,7 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
         <Input
           id={name}
           type="file"
-          accept="image/*"
+          accept="image/*, application/pdf"
           onChange={(e) => handleUpload(e)}
           className="hidden"
         />

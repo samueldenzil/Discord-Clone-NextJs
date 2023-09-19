@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
 
-import getCurrentUser from '@/actions/getCurrentUser'
+import getCurrentUser from '@/lib/get-current-user'
 import prisma from '@/lib/db'
 import { MemberRole } from '@prisma/client'
 

@@ -53,6 +53,7 @@ module.exports = {
       },
       backgroundImage: {
         'login-bg': 'url("/assets/login_bg.svg")',
+        'invite-bg': 'url("/assets/invite_bg.png")',
       },
       borderRadius: {
         lg: 'var(--radius)',
