@@ -106,7 +106,7 @@ export default function ChatItem({
 
   useEffect(() => {
     form.reset({ content: content })
-  }, [content])
+  }, [content, form])
 
   const fileType = fileUrl?.split('.').pop()
 
