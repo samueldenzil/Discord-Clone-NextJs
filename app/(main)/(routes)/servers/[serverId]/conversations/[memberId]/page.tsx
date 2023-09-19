@@ -3,8 +3,9 @@ import { redirect } from 'next/navigation'
 import getCurrentUser from '@/lib/get-current-user'
 import prisma from '@/lib/db'
 import { getOrCreateConversation } from '@/lib/conversation'
-import { CloudFog } from 'lucide-react'
 import ChatHeader from '@/components/chat/chat-header'
+import ChatMessages from '@/components/chat/chat-messages'
+import ChatInput from '@/components/chat/chat-input'
 
 type MemberIdPageProps = {
   params: {
@@ -50,6 +51,27 @@ export default async function MemberIdPage({ params }: MemberIdPageProps) {
         type="conversation"
         serverId={params.serverId}
         imageUrl={otherMember.user.image!}
+      />
+      <ChatMessages
+        name={otherMember.user.name ?? ''}
+        member={currentMember}
+        chatId={conversation.id}
+        apiUrl="/api/direct-messages"
+        socketUrl="/api/socket/direct-messages"
+        socketQuery={{
+          conversationId: conversation.id,
+        }}
+        paramKey="conversationId"
+        paramValue={conversation.id}
+        type={'conversation'}
+      />
+      <ChatInput
+        apiUrl="/api/socket/direct-messages"
+        query={{
+          conversationId: conversation.id,
+        }}
+        name={otherMember.user.name ?? ''}
+        type="conversation"
       />
     </div>
   )
