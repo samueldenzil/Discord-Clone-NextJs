@@ -112,7 +112,6 @@ export default function AuthForm() {
           errors={errors}
           disabled={isLoading}
         />
-        {/* TODO update */}
         <Button type="submit" variant="primary" className="w-full">
           {varient === 'LOGIN' ? 'Log In' : 'Continue'}
         </Button>
