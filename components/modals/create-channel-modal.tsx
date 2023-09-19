@@ -10,16 +10,13 @@ import queryString from 'query-string'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -35,10 +32,8 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-import FileUpload from '@/components/file-upload'
 import axios from 'axios'
 import { useModalStore } from '@/hooks/use-modal-store'
-import { url } from 'inspector'
 import { useEffect } from 'react'
 
 const formSchema = z.object({

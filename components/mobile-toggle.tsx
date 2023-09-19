@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Menu } from 'lucide-react'
 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'

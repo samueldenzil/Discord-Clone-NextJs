@@ -9,7 +9,7 @@ import NavigationAction from '@/components/navigation/navigation-action'
 import NavigationItem from '@/components/navigation/navigation-item'
 import { ModeToggle } from '@/components/mode-toggle'
 import UserAvatar from '@/components/user-avatar'
-import { signOut } from 'next-auth/react'
+// import { signOut } from 'next-auth/react'
 
 export default async function NavigationSidebar() {
   const user = await getCurrentUser()

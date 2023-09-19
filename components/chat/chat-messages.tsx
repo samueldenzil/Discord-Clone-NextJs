@@ -2,7 +2,7 @@
 
 import { Member, Message, User } from '@prisma/client'
 import { format } from 'date-fns'
-import { Divide, Loader2, ServerCrash } from 'lucide-react'
+import { Loader2, ServerCrash } from 'lucide-react'
 
 import { useChatQuery } from '@/hooks/use-chat-query'
 import useChatSocket from '@/hooks/use-chat-socket'

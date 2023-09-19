@@ -1,6 +1,6 @@
 'use client'
 
-import AuthForm from '../../../components/auth/auth-form'
+import AuthForm from '@/components/auth/auth-form'
 
 export default function Home() {
   return (
