@@ -31,7 +31,7 @@ export default function MediaRoom({ chatId, video, audio, username }: MediaRoomP
         console.error(error)
       }
     })()
-  }, [chatId])
+  }, [chatId, username])
 
   if (token === '') {
     return (
