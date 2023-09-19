@@ -111,7 +111,7 @@ export default function MemberModal() {
         </DialogHeader>
         <ScrollArea className="mt-8 max-h-[420px]">
           {server?.members.map((member) => (
-            <div className="flex items-center gap-x-2 mb-6">
+            <div key={member.id} className="flex items-center gap-x-2 mb-6">
               <UserAvatar src={member.user.image as string} className="" />
               <div className="flex flex-col gap-y-1">
                 <div className="text-xs font-semibold flex items-center">
