@@ -2,9 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 
-import AuthContext from '@/context/AuthContext'
-import ToastContext from '@/context/ToastContext'
-
+import { AuthProvider } from '@/components/providers/auth-provider'
+import { ToastProvider } from '@/components/providers/toast-provider'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import { SocketProvider } from '@/components/providers/socket-provider'
@@ -30,13 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           storageKey="discord-theme"
         >
           <SocketProvider>
-            <AuthContext>
+            <AuthProvider>
               <ModalProvider />
               <QueryProvider>
-                <ToastContext />
+                <ToastProvider />
                 {children}
               </QueryProvider>
-            </AuthContext>
+            </AuthProvider>
           </SocketProvider>
         </ThemeProvider>
       </body>
