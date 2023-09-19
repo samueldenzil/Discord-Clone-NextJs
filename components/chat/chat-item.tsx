@@ -142,9 +142,10 @@ export default function ChatItem({
               href={fileUrl!}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative aspect-square rounded-md mt-2 overflow-hidden border flex justify-center items-center bg-secondary h-48 w-48"
+              className="mt-2"
+              // className="relative aspect-square rounded-md mt-2 overflow-hidden border flex justify-center items-center bg-secondary"
             >
-              <Image src={fileUrl!} alt={content} fill className="object-cover" />
+              <Image src={fileUrl!} alt={content} height={348} width={348} className="rounded-md" />
             </a>
           )}
           {isPDF && (
