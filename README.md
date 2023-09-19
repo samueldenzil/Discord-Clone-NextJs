@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Discord Clone
 
-## Getting Started
+This is a Fullstack Discord Clone with Next.js 13, React, Socket.io, Prisma, Tailwind, PostgreSQL.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Real-time messaging using Socket.io
+- Send attachments as messages using Supabase bucket
+- 1:1 conversation between members
+- 1:1 video calls between members
+- Infinite loading for messages in batches of 10 (tanstack/query)
+- Server creation and customization
+- Beautiful UI using TailwindCSS and ShadcnUI with Full responsivity and mobile UI
+- Websocket fallback: Polling with alerts
+- ORM using Prisma and PostgreSQL database using Supabase
+- Authentication with Auth.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshot(s)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Screenshot 1](/Documentation/login-page-screenshot.jpg 'Login Page Screenshot')
+![Screenshot 2](/Documentation/general-channel-screenshot.jpg 'General Channel Screenshot')
+![Screenshot 3](/Documentation/video-channel-screenshot.jpg 'Video Channel Screenshot 2')
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Built With
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Auth.js](https://authjs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn.ui](https://ui.shadcn.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [zustand](https://zustand-demo.pmnd.rs/)
+- [Supabase](https://supabase.com/)
+- [Prisma.io](https://prisma.io/)
+- [Socket.IO](https://socket.io/)
+- [TanStack Query](https://tanstack.com/query/)
+- [LiveKit](https://livekit.io/)
+- [Railway](https://railway.app/)
