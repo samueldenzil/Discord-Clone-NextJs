@@ -97,8 +97,8 @@ export default function CreateChannelModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
+      <DialogContent className="overflow-hidden bg-white p-0 text-black">
+        <DialogHeader className="px-6 pt-8">
           <DialogTitle className="text-center text-2xl font-bold">Create Channel</DialogTitle>
         </DialogHeader>
 
@@ -110,7 +110,7 @@ export default function CreateChannelModal() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="text-xs font-bold uppercase text-zinc-500 dark:text-secondary/70">
                       Channel name
                     </FormLabel>
                     <FormControl>
@@ -118,7 +118,7 @@ export default function CreateChannelModal() {
                         placeholder="Enter channel name"
                         disabled={isLoading}
                         autoComplete="off"
-                        className="bg-zinc-300/50 border-0 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
+                        className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
                         {...field}
                       />
                     </FormControl>
@@ -132,7 +132,7 @@ export default function CreateChannelModal() {
                 name="type"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="text-xs font-bold uppercase text-zinc-500 dark:text-secondary/70">
                       Channel type
                     </FormLabel>
                     <Select
@@ -141,7 +141,7 @@ export default function CreateChannelModal() {
                       disabled={isLoading}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-zinc-300/50 text-black capitalize outline-none border-0 ring-offset-0 focus:ring-0 focus-visible:ring-offset-0">
+                        <SelectTrigger className="border-0 bg-zinc-300/50 capitalize text-black outline-none ring-offset-0 focus:ring-0 focus-visible:ring-offset-0">
                           <SelectValue placeholder="Select a channel" />
                         </SelectTrigger>
                       </FormControl>

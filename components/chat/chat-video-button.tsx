@@ -30,7 +30,7 @@ export default function ChatVideoButton() {
 
   return (
     <ActionTooltip side="bottom" label={tooltipLabel}>
-      <button onClick={onClick} className="mr-4 hover:opacity-75 transition">
+      <button onClick={onClick} className="mr-4 transition hover:opacity-75">
         <Icon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
       </button>
     </ActionTooltip>

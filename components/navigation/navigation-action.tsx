@@ -14,10 +14,10 @@ export default function NavigationAction() {
       <ActionTooltip side="right" align="center" label="Add a server">
         <button
           onClick={() => onOpen('createServer')}
-          className="group flex justify-center items-center"
+          className="group flex items-center justify-center"
         >
-          <div className="flex justify-center items-center h-12 w-12 rounded-[24px] group-hover:rounded-[16px] bg-background dark:bg-neutral-700 group-hover:bg-emerald-500 overflow-hidden transition-all">
-            <Plus className="text-emerald-500 group-hover:text-white transition-all" width={25} />
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[24px] bg-background transition-all group-hover:rounded-[16px] group-hover:bg-emerald-500 dark:bg-neutral-700">
+            <Plus className="text-emerald-500 transition-all group-hover:text-white" width={25} />
           </div>
         </button>
       </ActionTooltip>

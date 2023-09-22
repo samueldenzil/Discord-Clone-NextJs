@@ -117,7 +117,7 @@ export default function AuthForm() {
         </Button>
       </form>
 
-      <div className="text-sm flex gap-2 mt-3">
+      <div className="mt-3 flex gap-2 text-sm">
         {varient === 'LOGIN' && <div className="text-[#949ba4]">Need an account?</div>}
         <div
           className="cursor-pointer text-[#00a8fc] hover:underline"

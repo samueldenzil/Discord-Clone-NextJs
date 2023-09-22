@@ -51,10 +51,10 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
   if (value && fileType !== 'pdf') {
     return (
       <div className="relative h-20 w-20">
-        <Image src={value} fill alt={name} className="object-cover rounded-full" />
+        <Image src={value} fill alt={name} className="rounded-full object-cover" />
         <button
           onClick={handleDelete}
-          className="absolute top-0 right-0 bg-rose-500 text-white p-1 rounded-full shadow-sm"
+          className="absolute right-0 top-0 rounded-full bg-rose-500 p-1 text-white shadow-sm"
           type="button"
         >
           <X className="h-4 w-4" />
@@ -66,19 +66,19 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
   // BUG: pdf url not showing properly
   if (value && fileType === 'pdf') {
     return (
-      <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
+      <div className="relative mt-2 flex items-center rounded-md bg-background/10 p-2">
         <FileIcon className="h-10 w-10 fill-indigo-200 stroke-indigo-400" />
         <a
           href={value}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
+          className="ml-2 text-sm text-indigo-500 hover:underline dark:text-indigo-400"
         >
           {value}
         </a>
         <button
           onClick={() => onChange('')}
-          className="bg-rose-500 text-white p-1 rounded-full absolute -top-2 -right-2 shadow-sm"
+          className="absolute -right-2 -top-2 rounded-full bg-rose-500 p-1 text-white shadow-sm"
           type="button"
         >
           <X className="h-4 w-4" />
@@ -88,13 +88,13 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
   }
 
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex w-full items-center justify-center">
       <label
         htmlFor={name}
-        className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+        className="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100"
       >
-        <div className="flex flex-col items-center justify-center pt-5 pb-6 px-10">
-          <UploadCloud className="w-8 h-8 mb-4 text-gray-500" />
+        <div className="flex flex-col items-center justify-center px-10 pb-6 pt-5">
+          <UploadCloud className="mb-4 h-8 w-8 text-gray-500" />
           <p className="mb-2 text-sm text-gray-500">Click to upload or drag and drop</p>
           <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
         </div>

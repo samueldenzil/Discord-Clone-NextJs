@@ -49,7 +49,7 @@ export default async function MemberIdPage({ params, searchParams }: MemberIdPag
   const otherMember = memberOne.userId === user.id ? memberTwo : memberOne
 
   return (
-    <div className="bg-white flex flex-col h-full dark:bg-[#313338]">
+    <div className="flex h-full flex-col bg-white dark:bg-[#313338]">
       <ChatHeader
         name={otherMember.user.name!}
         type="conversation"

@@ -17,15 +17,15 @@ type ServerSidebarProps = {
 }
 
 const iconMap = {
-  [ChannelType.TEXT]: <Hash className="h-4 w-4 mr-2" />,
-  [ChannelType.AUDIO]: <Mic className="h-4 w-4 mr-2" />,
-  [ChannelType.VIDEO]: <Video className="h-4 w-4 mr-2" />,
+  [ChannelType.TEXT]: <Hash className="mr-2 h-4 w-4" />,
+  [ChannelType.AUDIO]: <Mic className="mr-2 h-4 w-4" />,
+  [ChannelType.VIDEO]: <Video className="mr-2 h-4 w-4" />,
 }
 
 const roleIconMap = {
   [MemberRole.GUEST]: null,
-  [MemberRole.MODERATOR]: <ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" />,
-  [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 mr-2 text-rose-500" />,
+  [MemberRole.MODERATOR]: <ShieldCheck className="mr-2 h-4 w-4 text-indigo-500" />,
+  [MemberRole.ADMIN]: <ShieldAlert className="mr-2 h-4 w-4 text-rose-500" />,
 }
 
 export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
@@ -68,7 +68,7 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
   const role = server.members.find((member) => member.userId === user.id)?.role
 
   return (
-    <div className="h-full w-full flex flex-col bg-[#f2f3f5] dark:bg-[#2b2d31] text-primary">
+    <div className="flex h-full w-full flex-col bg-[#f2f3f5] text-primary dark:bg-[#2b2d31]">
       <ServerHeader server={server} role={role} />
 
       <ScrollArea className="flex-1 px-3">
@@ -115,7 +115,7 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
           />
         </div>
 
-        <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
+        <Separator className="my-2 rounded-md bg-zinc-200 dark:bg-zinc-700" />
 
         {!!textChannels.length && (
           <div className="mb-2">
@@ -163,7 +163,7 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
           </div>
         )}
 
-        <div className="md:hidden mb-2">
+        <div className="mb-2 md:hidden">
           <ServerSection sectionType="members" role={role} server={server} label="Members" />
           <div className="space-y-[2px]">
             {members.map((member) => (

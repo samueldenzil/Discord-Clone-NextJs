@@ -29,11 +29,11 @@ export default async function NavigationSidebar() {
   }
 
   return (
-    <div className="flex flex-col items-center space-y-4 h-full text-primary w-full py-3 bg-[#e3e5e8] dark:bg-[#1e1f22]">
+    <div className="flex h-full w-full flex-col items-center space-y-4 bg-[#e3e5e8] py-3 text-primary dark:bg-[#1e1f22]">
       <NavigationAction />
-      <Separator className="h-[2px] rounded-md w-10 mx-auto bg-zinc-300 dark:bg-zinc-700" />
+      <Separator className="mx-auto h-[2px] w-10 rounded-md bg-zinc-300 dark:bg-zinc-700" />
 
-      <ScrollArea className="flex-1 w-full">
+      <ScrollArea className="w-full flex-1">
         {servers.map((server) => (
           <div key={server.id} className="mb-4">
             <NavigationItem id={server.id} name={server.name} imgUrl={server.imageUrl} />
@@ -41,7 +41,7 @@ export default async function NavigationSidebar() {
         ))}
       </ScrollArea>
 
-      <div className="pb-3 mt-auto flex flex-col items-center gap-y-4">
+      <div className="mt-auto flex flex-col items-center gap-y-4 pb-3">
         <ModeToggle />
         <UserAvatar
           src={user.image!}

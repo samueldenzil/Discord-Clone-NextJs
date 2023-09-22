@@ -41,7 +41,7 @@ export default async function ServerMembersSidebar({ serverId }: ServerMembersSi
   const role = server.members.find((member) => member.userId === user.id)?.role
 
   return (
-    <div className="h-full w-full flex flex-col bg-[#f2f3f5] dark:bg-[#2b2d31] text-primary">
+    <div className="flex h-full w-full flex-col bg-[#f2f3f5] text-primary dark:bg-[#2b2d31]">
       <ScrollArea className="flex-1 px-3">
         <div className="my-2">
           <ServerSection sectionType="members" role={role} server={server} label="Members" />

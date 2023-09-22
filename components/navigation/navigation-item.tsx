@@ -25,15 +25,15 @@ export default function NavigationItem({ id, imgUrl, name }: NavigationItemProps
       <button onClick={onClick} className="group relative flex items-center">
         <div
           className={cn(
-            'absolute left-0 bg-primary rounded-r-full w-1 transition-all',
+            'absolute left-0 w-1 rounded-r-full bg-primary transition-all',
             params?.serverId !== id && 'group-hover:h-5',
             params?.serverId === id ? 'h-9' : 'h-2'
           )}
         />
         <div
           className={cn(
-            'relative mx-3 group h-12 w-12 rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden',
-            params?.serverId === id && 'bg-primary/10 text-primary rounded-[16px]'
+            'group relative mx-3 h-12 w-12 overflow-hidden rounded-[24px] transition-all group-hover:rounded-[16px]',
+            params?.serverId === id && 'rounded-[16px] bg-primary/10 text-primary'
           )}
         >
           <Image src={imgUrl} fill alt={`${name} server image`} />

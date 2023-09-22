@@ -13,7 +13,7 @@ export default function ActionTooltip({ label, children, side, align }: ActionTo
       <Tooltip delayDuration={50}>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent side={side} align={align}>
-          <p className="font-semibold text-sm capitalize">{label.toLocaleLowerCase()}</p>
+          <p className="text-sm font-semibold capitalize">{label.toLocaleLowerCase()}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

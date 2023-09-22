@@ -46,17 +46,17 @@ export default function InviteModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
+      <DialogContent className="overflow-hidden bg-white p-0 text-black">
+        <DialogHeader className="px-6 pt-8">
           <DialogTitle className="text-center text-2xl font-bold">Invite friends</DialogTitle>
         </DialogHeader>
         <div className="p-6">
-          <Label className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+          <Label className="text-xs font-bold uppercase text-zinc-500 dark:text-secondary/70">
             Server invite link
           </Label>
-          <div className="flex items-center mt-2 gap-x-2">
+          <div className="mt-2 flex items-center gap-x-2">
             <Input
-              className="bg-zinc-300/50 border-0 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
               value={inviteUrl}
               disabled={isLoading}
             />
@@ -67,12 +67,12 @@ export default function InviteModal() {
           <Button
             variant="link"
             size="sm"
-            className="text-xs text-zinc-500 mt-4"
+            className="mt-4 text-xs text-zinc-500"
             onClick={onNew}
             disabled={isLoading}
           >
             Generate a new link
-            <RefreshCw className="w-4 h-4 ml-2" />
+            <RefreshCw className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </DialogContent>

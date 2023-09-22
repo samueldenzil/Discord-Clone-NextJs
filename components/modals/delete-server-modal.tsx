@@ -41,8 +41,8 @@ export default function DeleteServerModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
+      <DialogContent className="overflow-hidden bg-white p-0 text-black">
+        <DialogHeader className="px-6 pt-8">
           <DialogTitle className="text-center text-2xl font-bold">Delete Server</DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
             Are you sure you want to do this?
@@ -52,7 +52,7 @@ export default function DeleteServerModal() {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="bg-gray-100 px-6 py-4">
-          <div className="flex justify-between items-center w-full">
+          <div className="flex w-full items-center justify-between">
             <Button variant="ghost" onClick={onClose} disabled={isLoading}>
               Cancel
             </Button>

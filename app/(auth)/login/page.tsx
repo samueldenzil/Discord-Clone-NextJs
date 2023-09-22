@@ -4,11 +4,11 @@ import AuthForm from '@/components/auth/auth-form'
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-lg w-full">
-      <div className="p-8 bg-[#313338] rounded-md shadow-md">
-        <div className="flex space-y-2 flex-col text-center cursor-default">
-          <h3 className="text-gray-200 font-medium text-xl">Welcome Back</h3>
-          <p className="text-gray-400 text-sm">We&apos;re so excited to see you again!</p>
+    <div className="mx-auto w-full max-w-lg">
+      <div className="rounded-md bg-[#313338] p-8 shadow-md">
+        <div className="flex cursor-default flex-col space-y-2 text-center">
+          <h3 className="text-xl font-medium text-gray-200">Welcome Back</h3>
+          <p className="text-sm text-gray-400">We&apos;re so excited to see you again!</p>
         </div>
 
         <AuthForm />

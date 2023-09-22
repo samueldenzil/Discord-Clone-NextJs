@@ -40,7 +40,7 @@ export default async function ChannelIdPage({ params }: ChannelIdPageProps) {
   }
 
   return (
-    <div className="bg-white flex flex-col h-full dark:bg-[#313338]">
+    <div className="flex h-full flex-col bg-white dark:bg-[#313338]">
       <ChatHeader name={channel.name} serverId={params.serverId} type="channel" />
       {channel.type === ChannelType.TEXT && (
         <>

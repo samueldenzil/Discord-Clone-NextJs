@@ -73,8 +73,8 @@ export default function InitialModal() {
   return (
     <div className="h-full bg-invite-bg object-cover object-center">
       <Dialog open>
-        <DialogContent className="bg-white text-black p-0 overflow-hidden">
-          <DialogHeader className="pt-8 px-6">
+        <DialogContent className="overflow-hidden bg-white p-0 text-black">
+          <DialogHeader className="px-6 pt-8">
             <DialogTitle className="text-center text-2xl font-bold">
               Customize your server
             </DialogTitle>
@@ -87,7 +87,7 @@ export default function InitialModal() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="space-y-8 px-6">
-                <div className="flex justify-center items-center text-center">
+                <div className="flex items-center justify-center text-center">
                   <FormField
                     control={form.control}
                     name="imageUrl"
@@ -111,14 +111,14 @@ export default function InitialModal() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                      <FormLabel className="text-xs font-bold uppercase text-zinc-500 dark:text-secondary/70">
                         Server name
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter server name"
                           disabled={isLoading}
-                          className="bg-zinc-300/50 border-0 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
+                          className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
                       </FormControl>
