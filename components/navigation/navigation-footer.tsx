@@ -47,7 +47,10 @@ export default function NavigationFooter({ user }: NavigationFooterProps) {
             <LogOut className="ml-auto h-4 w-4" />
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="cursor-pointer px-3 py-2 text-rose-500">
+          <DropdownMenuItem
+            onClick={() => onOpen('deleteUser', { user })}
+            className="cursor-pointer px-3 py-2 text-rose-500"
+          >
             Delete User
             <Trash className="ml-auto h-4 w-4" />
           </DropdownMenuItem>

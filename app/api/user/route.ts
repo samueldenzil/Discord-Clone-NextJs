@@ -2,6 +2,27 @@ import prisma from '@/lib/db'
 import getCurrentUser from '@/lib/get-current-user'
 import { NextResponse } from 'next/server'
 
+export async function DELETE(request: Request) {
+  try {
+    let user = await getCurrentUser()
+
+    if (!user) {
+      return new NextResponse('Unauthorized', { status: 401 })
+    }
+
+    user = await prisma.user.delete({
+      where: {
+        id: user.id,
+      },
+    })
+
+    return NextResponse.json(user)
+  } catch (error) {
+    console.error('[USERID_DELETE_ERROR]: ' + error)
+    return new NextResponse('Internal Error', { status: 500 })
+  }
+}
+
 export async function PATCH(request: Request) {
   try {
     let user = await getCurrentUser()

@@ -14,6 +14,7 @@ import EditChannelModal from '@/components/modals/edit-channel-modal'
 import MessageFileModal from '@/components/modals/message-file-modal'
 import DeleteMessageModal from '@/components/modals/delete-message-modal'
 import EditUserModal from '@/components/modals/edit-user-modal'
+import DeleteUserModal from '@/components/modals/delete-user-modal'
 
 export function ModalProvider() {
   const [isMounted, setIsMounted] = useState(false)
@@ -40,6 +41,7 @@ export function ModalProvider() {
       <MessageFileModal />
       <DeleteMessageModal />
       <EditUserModal />
+      <DeleteUserModal />
     </>
   )
 }

@@ -15,6 +15,7 @@ export type ModalType =
   | 'messageFile'
   | 'deleteMessage'
   | 'editUser'
+  | 'deleteUser'
 
 type ModalData = {
   user?: User
