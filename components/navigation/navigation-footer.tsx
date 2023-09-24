@@ -1,5 +1,6 @@
 'use client'
 
+import { signOut } from 'next-auth/react'
 import { User } from '@prisma/client'
 import { LogOut, Settings, Trash } from 'lucide-react'
 
@@ -41,7 +42,7 @@ export default function NavigationFooter({ user }: NavigationFooterProps) {
             Account Settings
             <Settings className="ml-auto h-4 w-4" />
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer px-3 py-2">
+          <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer px-3 py-2">
             Logout
             <LogOut className="ml-auto h-4 w-4" />
           </DropdownMenuItem>
