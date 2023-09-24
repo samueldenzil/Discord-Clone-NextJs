@@ -22,6 +22,7 @@ export async function POST(request: Request) {
         name,
         email,
         hashedPassword,
+        emailVerified: new Date(),
         image: publicUrlData.publicUrl,
       },
     })
