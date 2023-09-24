@@ -7,9 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import NavigationAction from '@/components/navigation/navigation-action'
 import NavigationItem from '@/components/navigation/navigation-item'
-import { ModeToggle } from '@/components/mode-toggle'
-import UserAvatar from '@/components/user-avatar'
-// import { signOut } from 'next-auth/react'
+import NavigationFooter from '@/components/navigation/navigation-footer'
 
 export default async function NavigationSidebar() {
   const user = await getCurrentUser()
@@ -41,14 +39,7 @@ export default async function NavigationSidebar() {
         ))}
       </ScrollArea>
 
-      <div className="mt-auto flex flex-col items-center gap-y-4 pb-3">
-        <ModeToggle />
-        <UserAvatar
-          src={user.image!}
-          className="cursor-pointer md:h-11 md:w-11"
-          onClick="signOut"
-        />
-      </div>
+      <NavigationFooter user={user} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Channel, ChannelType, Server } from '@prisma/client'
+import { Channel, ChannelType, Server, User } from '@prisma/client'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
@@ -14,8 +14,10 @@ export type ModalType =
   | 'editChannel'
   | 'messageFile'
   | 'deleteMessage'
+  | 'editUser'
 
 type ModalData = {
+  user?: User
   server?: Server
   channel?: Channel
   channelType?: ChannelType
