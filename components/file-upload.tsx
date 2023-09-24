@@ -63,7 +63,6 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
     )
   }
 
-  // BUG: pdf url not showing properly
   if (value && fileType === 'pdf') {
     return (
       <div className="relative mt-2 flex items-center rounded-md bg-background/10 p-2">
@@ -74,10 +73,10 @@ export default function FileUpload({ name, value, endpoint, onChange }: FileUplo
           rel="noopener noreferrer"
           className="ml-2 text-sm text-indigo-500 hover:underline dark:text-indigo-400"
         >
-          {value}
+          {value.split('/').pop()}
         </a>
         <button
-          onClick={() => onChange('')}
+          onClick={handleDelete}
           className="absolute -right-2 -top-2 rounded-full bg-rose-500 p-1 text-white shadow-sm"
           type="button"
         >
