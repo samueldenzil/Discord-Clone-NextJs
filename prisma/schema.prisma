@@ -2,12 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  schemas  = ["discord_clone"]
 }
 
 model Account {
@@ -27,6 +29,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@schema("discord_clone")
 }
 
 model User {
@@ -47,6 +50,8 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@schema("discord_clone")
 }
 
 model Server {
@@ -66,12 +71,15 @@ model Server {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
+  @@schema("discord_clone")
 }
 
 enum MemberRole {
   ADMIN
   MODERATOR
   GUEST
+
+  @@schema("discord_clone")
 }
 
 model Member {
@@ -96,12 +104,15 @@ model Member {
 
   @@index([userId])
   @@index([serverId])
+  @@schema("discord_clone")
 }
 
 enum ChannelType {
   TEXT
   AUDIO
   VIDEO
+
+  @@schema("discord_clone")
 }
 
 model Channel {
@@ -122,6 +133,7 @@ model Channel {
 
   @@index([userId])
   @@index([serverId])
+  @@schema("discord_clone")
 }
 
 model Message {
@@ -141,6 +153,7 @@ model Message {
 
   @@index([channelId])
   @@index([memberId])
+  @@schema("discord_clone")
 }
 
 model Conversation {
@@ -155,6 +168,7 @@ model Conversation {
   directMessages DirectMessage[]
 
   @@unique([memberOneId, memberTwoId])
+  @@schema("discord_clone")
 }
 
 model DirectMessage {
@@ -174,4 +188,5 @@ model DirectMessage {
 
   @@index([memberId])
   @@index([conversationId])
+  @@schema("discord_clone")
 }
